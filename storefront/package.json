@@ -27,6 +27,7 @@
     "@hookform/error-message": "^2.0.0",
     "@medusajs/js-sdk": "preview",
     "@medusajs/types": "preview",
+    "@medusajs/icons": "latest",
     "@medusajs/ui": "preview",
     "@meilisearch/instant-meilisearch": "^0.7.1",
     "@paypal/paypal-js": "^5.0.6",
