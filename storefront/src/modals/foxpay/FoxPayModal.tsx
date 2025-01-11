@@ -2,13 +2,17 @@ import React from 'react';
 
 interface TestModalProps {
   show: boolean;
+  amount: number;
+  reference: string;
   onClose: () => void;
 }
 
-const TestModal: React.FC<TestModalProps> = ({ show, onClose }) => {
+const TestModal: React.FC<TestModalProps> = ({ reference, amount, show, onClose }) => {
   if (!show) {
     return null;
   }
+
+  const formattedAmount = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(amount);
 
   return (
     <div style={modalStyles.overlay}>
@@ -17,9 +21,9 @@ const TestModal: React.FC<TestModalProps> = ({ show, onClose }) => {
           <label></label>
           <img style={modalStyles.topAreaLogo} src={process.env.PUBLIC_URL + '/foxpay.png'} alt='logo' />
         </div>
-        <h2 style={modalStyles.dialogHeading}>Zahlung #5240</h2>
+        <h2 style={modalStyles.dialogHeading}>Zahlung #{reference}</h2>
 
-        <p style={modalStyles.sumLabel}>214.24 €</p>
+        <p style={modalStyles.sumLabel}>{formattedAmount}</p>
         <p>A5F4FDS5DS</p>
 
         <button style={modalStyles.submitButton} onClick={onClose}>Close</button>

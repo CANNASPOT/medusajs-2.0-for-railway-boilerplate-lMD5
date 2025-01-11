@@ -205,6 +205,8 @@ const Payment = ({
 
           <TestModal
             onClose={closeModal}
+            amount={cart.total}
+            reference="A5F4FDS5DS"
             show={isModalOpen}
           ></TestModal>
         </div>
