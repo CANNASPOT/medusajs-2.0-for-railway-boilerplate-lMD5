@@ -1,4 +1,4 @@
-import { Modules } from "@medusajs/framework/utils";
+import { Modules } from "@medusajs/utils";
 
 export async function POST(req: any, res: any) {
   const paymentModuleService = req.scope.resolve(Modules.PAYMENT);
