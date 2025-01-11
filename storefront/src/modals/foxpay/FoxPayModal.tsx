@@ -18,9 +18,11 @@ const TestModal: React.FC<TestModalProps> = ({ show, onClose }) => {
           <img style={modalStyles.topAreaLogo} src='/assets/foxpay.png' alt='logo' />
         </div>
         <h2 style={modalStyles.dialogHeading}>Zahlung #5240</h2>
-        <p>Hier ist der QR Code</p>
 
-        <button onClick={onClose}>Close</button>
+        <p style={modalStyles.sumLabel}>214.24 €</p>
+        <p>A5F4FDS5DS</p>
+
+        <button style={modalStyles.submitButton} onClick={onClose}>Close</button>
       </div>
     </div>
   );
@@ -35,13 +37,13 @@ const modalStyles = {
     bottom: 0,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     display: 'flex',
-    minWidth: '350px !important',
     justifyContent: 'center',
     alignItems: 'center',
   },
   content: {
     backgroundColor: 'white',
     padding: '24px',
+    width: '550px',
     borderRadius: '4px'
   },
   topArea: {
@@ -55,9 +57,24 @@ const modalStyles = {
     alignSelf: 'end'
   },
   dialogHeading: {
-    fontSize: '24px',
+    fontSize: '30px',
     marginBottom: '20px',
     fontWeight: 'bold'
+  },
+  sumLabel: {
+    fontSize: '25px',
+    color: '#333',
+    fontWeight: '700',
+    marginBottom: '5px'
+  },
+  submitButton: {
+    marginTop: '20px',
+    padding: '8px 16px',
+    backgroundColor: '#333',
+    color: 'white',
+    border: 'none',
+    borderRadius: '4px',
+    cursor: 'pointer'
   }
 };
 
