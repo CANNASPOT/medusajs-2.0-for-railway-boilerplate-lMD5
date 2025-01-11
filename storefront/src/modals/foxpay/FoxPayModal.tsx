@@ -19,7 +19,7 @@ const TestModal: React.FC<TestModalProps> = ({ reference, amount, show, onClose 
       <div style={modalStyles.content}>
         <div style={modalStyles.topArea}>
           <label></label>
-          <img style={modalStyles.topAreaLogo} src={process.env.PUBLIC_URL + '/foxpay.png'} alt='logo' />
+          <img style={modalStyles.topAreaLogo} srcSet='https://ventror.com/wp-content/uploads/2024/12/Foxpay-1024x531.png' alt="FoxPay" />
         </div>
         <h2 style={modalStyles.dialogHeading}>Zahlung #{reference}</h2>
 
@@ -52,13 +52,16 @@ const modalStyles = {
   },
   topArea: {
     display: 'grid',
-    templateColumns: '1fr 100px',
-    alignItems: 'center',
+    width: '100%',
+    templateColumns: '1fr auto',
+    alignItems: 'end',
     marginBottom: '20px',
   },
   topAreaLogo: {
     gridColumn: '2',
-    alignSelf: 'end'
+    alignSelf: 'end',
+    height: '75px',
+    width: 'auto'
   },
   dialogHeading: {
     fontSize: '30px',
