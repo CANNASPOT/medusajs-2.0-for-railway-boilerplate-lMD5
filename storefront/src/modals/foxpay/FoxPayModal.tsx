@@ -15,7 +15,7 @@ const TestModal: React.FC<TestModalProps> = ({ show, onClose }) => {
       <div style={modalStyles.content}>
         <div style={modalStyles.topArea}>
           <label></label>
-          <img style={modalStyles.topAreaLogo} src='/assets/foxpay.png' alt='logo' />
+          <img style={modalStyles.topAreaLogo} src={process.env.PUBLIC_URL + '/foxpay.png'} alt='logo' />
         </div>
         <h2 style={modalStyles.dialogHeading}>Zahlung #5240</h2>
 
