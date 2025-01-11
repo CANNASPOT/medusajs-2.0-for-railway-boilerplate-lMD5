@@ -5,7 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { RadioGroup } from "@headlessui/react"
 import ErrorMessage from "@modules/checkout/components/error-message"
 import { CheckCircleSolid, CreditCard } from "@medusajs/icons"
-import { Button, Container, Heading, Text, Tooltip, clx } from "@medusajs/ui"
+import { Button, Container, Heading, Text, clx } from "@medusajs/ui"
 import { CardElement } from "@stripe/react-stripe-js"
 import { StripeCardElementOptions } from "@stripe/stripe-js"
 
@@ -13,7 +13,7 @@ import Divider from "@modules/common/components/divider"
 import PaymentContainer from "@modules/checkout/components/payment-container"
 import { isStripe as isStripeFunc, paymentInfoMap } from "@lib/constants"
 import { StripeContext } from "@modules/checkout/components/payment-wrapper"
-import { initiatePaymentSession } from "@lib/data/cart"
+import TestModal from "modals/foxpay/FoxPayModal"
 
 const Payment = ({
   cart,
@@ -27,6 +27,7 @@ const Payment = ({
   )
 
   const [isLoading, setIsLoading] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [error, setError] = useState<string | null>(null)
   const [cardBrand, setCardBrand] = useState<string | null>(null)
   const [cardComplete, setCardComplete] = useState(false)
@@ -82,32 +83,13 @@ const Payment = ({
     })
   }
 
-  const handleSubmit = async () => {
-    setIsLoading(true)
-    try {
-      const shouldInputCard =
-        isStripeFunc(selectedPaymentMethod) && !activeSession
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
 
-      if (!activeSession) {
-        await initiatePaymentSession(cart, {
-          provider_id: selectedPaymentMethod,
-        })
-      }
-
-      if (!shouldInputCard) {
-        return router.push(
-          pathname + "?" + createQueryString("step", "review"),
-          {
-            scroll: false,
-          }
-        )
-      }
-    } catch (err: any) {
-      setError(err.message)
-    } finally {
-      setIsLoading(false)
-    }
-  }
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   useEffect(() => {
     setError(null)
@@ -208,7 +190,7 @@ const Payment = ({
           <Button
             size="large"
             className="mt-6"
-            onClick={handleSubmit}
+            onClick={openModal}
             isLoading={isLoading}
             disabled={
               (isStripe && !cardComplete) ||
@@ -220,6 +202,11 @@ const Payment = ({
               ? " Enter card details"
               : "Continue to review"}
           </Button>
+
+          <TestModal
+            onClose={closeModal}
+            show={isModalOpen}
+          ></TestModal>
         </div>
 
         <div className={isOpen ? "hidden" : "block"}>
