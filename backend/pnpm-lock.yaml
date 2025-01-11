@@ -26,6 +26,9 @@ importers:
       '@medusajs/notification-sendgrid':
         specifier: latest
         version: 2.1.3(@medusajs/framework@2.1.3(lyi3kszwp2a45wzyj6wnf5jwoi))
+      '@medusajs/payment':
+        specifier: ^2.2.0
+        version: 2.2.0(@medusajs/framework@2.1.3(lyi3kszwp2a45wzyj6wnf5jwoi))(@mikro-orm/core@5.9.7(@mikro-orm/migrations@5.9.7(@mikro-orm/core@5.9.7)(@types/node@20.17.10)(pg@8.13.1))(@mikro-orm/postgresql@5.9.7(@mikro-orm/core@5.9.7)(@mikro-orm/migrations@5.9.7)))(@mikro-orm/migrations@5.9.7(@mikro-orm/core@5.9.7)(@types/node@20.17.10)(pg@8.13.1))(@mikro-orm/postgresql@5.9.7(@mikro-orm/core@5.9.7)(@mikro-orm/migrations@5.9.7))(awilix@8.0.1)
       '@medusajs/payment-stripe':
         specifier: latest
         version: 2.1.3(@medusajs/framework@2.1.3(lyi3kszwp2a45wzyj6wnf5jwoi))(awilix@8.0.1)
@@ -62,6 +65,9 @@ importers:
       express:
         specifier: ^4.21.2
         version: 4.21.2
+      medusa-core-utils:
+        specifier: latest
+        version: 1.2.3
       medusajs-launch-utils:
         specifier: ^0.0.10
         version: 0.0.10
@@ -1696,8 +1702,8 @@ packages:
       '@medusajs/framework': ^2.0.0
       awilix: ^8.0.1
 
-  '@medusajs/payment@2.1.3':
-    resolution: {integrity: sha512-dgaMzeBwOGVt59MWSz6RxymLe236PvfQtedfd9xWLzaoFRFwk6k5rLG4otAVrfqrPkAGW2uyTVvW0sgZf51Pcw==}
+  '@medusajs/payment@2.2.0':
+    resolution: {integrity: sha512-j+ALJv8s1ZFgroe4LFI3CCbDTz14utPs8bfiQSG18D5raFGoPvz/amtW/wRIebctiFZ3kCHgKSqJ6RWstP01Jw==}
     engines: {node: '>=20'}
     peerDependencies:
       '@medusajs/framework': ^2.0.0
@@ -5722,6 +5728,10 @@ packages:
     resolution: {integrity: sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ==}
     engines: {node: '>= 0.6'}
 
+  medusa-core-utils@1.2.3:
+    resolution: {integrity: sha512-mNUqWh8G7BF9dcxt3t22GtSJrm4pfpU98QzvNgpqAvirVbBI4lOCpDQGoKE+jMHOLQJHrLQFoSJeqcofDJvEgA==}
+    engines: {node: '>=16'}
+
   medusajs-launch-utils@0.0.10:
     resolution: {integrity: sha512-ArsW5xjBAuhTC9Ivhey2wQ3b4Cb0EFyJYKY2cSJs3TcyGr5/KPPiBi81L+637ZqOPd8IOzYCq3Snjp9iXb6sRg==}
     hasBin: true
@@ -9333,7 +9343,7 @@ snapshots:
       '@medusajs/notification-local': 2.1.3(@medusajs/framework@2.1.3(lyi3kszwp2a45wzyj6wnf5jwoi))
       '@medusajs/notification-sendgrid': 2.1.3(@medusajs/framework@2.1.3(lyi3kszwp2a45wzyj6wnf5jwoi))
       '@medusajs/order': 2.1.3(@medusajs/framework@2.1.3(lyi3kszwp2a45wzyj6wnf5jwoi))(@mikro-orm/core@5.9.7(@mikro-orm/migrations@5.9.7(@mikro-orm/core@5.9.7)(@types/node@20.17.10)(pg@8.13.1))(@mikro-orm/postgresql@5.9.7(@mikro-orm/core@5.9.7)(@mikro-orm/migrations@5.9.7)))(@mikro-orm/migrations@5.9.7(@mikro-orm/core@5.9.7)(@types/node@20.17.10)(pg@8.13.1))(@mikro-orm/postgresql@5.9.7(@mikro-orm/core@5.9.7)(@mikro-orm/migrations@5.9.7))(awilix@8.0.1)
-      '@medusajs/payment': 2.1.3(@medusajs/framework@2.1.3(lyi3kszwp2a45wzyj6wnf5jwoi))(@mikro-orm/core@5.9.7(@mikro-orm/migrations@5.9.7(@mikro-orm/core@5.9.7)(@types/node@20.17.10)(pg@8.13.1))(@mikro-orm/postgresql@5.9.7(@mikro-orm/core@5.9.7)(@mikro-orm/migrations@5.9.7)))(@mikro-orm/migrations@5.9.7(@mikro-orm/core@5.9.7)(@types/node@20.17.10)(pg@8.13.1))(@mikro-orm/postgresql@5.9.7(@mikro-orm/core@5.9.7)(@mikro-orm/migrations@5.9.7))(awilix@8.0.1)
+      '@medusajs/payment': 2.2.0(@medusajs/framework@2.1.3(lyi3kszwp2a45wzyj6wnf5jwoi))(@mikro-orm/core@5.9.7(@mikro-orm/migrations@5.9.7(@mikro-orm/core@5.9.7)(@types/node@20.17.10)(pg@8.13.1))(@mikro-orm/postgresql@5.9.7(@mikro-orm/core@5.9.7)(@mikro-orm/migrations@5.9.7)))(@mikro-orm/migrations@5.9.7(@mikro-orm/core@5.9.7)(@types/node@20.17.10)(pg@8.13.1))(@mikro-orm/postgresql@5.9.7(@mikro-orm/core@5.9.7)(@mikro-orm/migrations@5.9.7))(awilix@8.0.1)
       '@medusajs/payment-stripe': 2.1.3(@medusajs/framework@2.1.3(lyi3kszwp2a45wzyj6wnf5jwoi))(awilix@8.0.1)
       '@medusajs/pricing': 2.1.3(@medusajs/framework@2.1.3(lyi3kszwp2a45wzyj6wnf5jwoi))(@mikro-orm/core@5.9.7(@mikro-orm/migrations@5.9.7(@mikro-orm/core@5.9.7)(@types/node@20.17.10)(pg@8.13.1))(@mikro-orm/postgresql@5.9.7(@mikro-orm/core@5.9.7)(@mikro-orm/migrations@5.9.7)))(@mikro-orm/migrations@5.9.7(@mikro-orm/core@5.9.7)(@types/node@20.17.10)(pg@8.13.1))(@mikro-orm/postgresql@5.9.7(@mikro-orm/core@5.9.7)(@mikro-orm/migrations@5.9.7))(awilix@8.0.1)
       '@medusajs/product': 2.1.3(@medusajs/framework@2.1.3(lyi3kszwp2a45wzyj6wnf5jwoi))(@mikro-orm/core@5.9.7(@mikro-orm/migrations@5.9.7(@mikro-orm/core@5.9.7)(@types/node@20.17.10)(pg@8.13.1))(@mikro-orm/postgresql@5.9.7(@mikro-orm/core@5.9.7)(@mikro-orm/migrations@5.9.7)))(@mikro-orm/migrations@5.9.7(@mikro-orm/core@5.9.7)(@types/node@20.17.10)(pg@8.13.1))(@mikro-orm/postgresql@5.9.7(@mikro-orm/core@5.9.7)(@mikro-orm/migrations@5.9.7))(awilix@8.0.1)
@@ -9462,7 +9472,7 @@ snapshots:
       awilix: 8.0.1
       stripe: 15.12.0
 
-  '@medusajs/payment@2.1.3(@medusajs/framework@2.1.3(lyi3kszwp2a45wzyj6wnf5jwoi))(@mikro-orm/core@5.9.7(@mikro-orm/migrations@5.9.7(@mikro-orm/core@5.9.7)(@types/node@20.17.10)(pg@8.13.1))(@mikro-orm/postgresql@5.9.7(@mikro-orm/core@5.9.7)(@mikro-orm/migrations@5.9.7)))(@mikro-orm/migrations@5.9.7(@mikro-orm/core@5.9.7)(@types/node@20.17.10)(pg@8.13.1))(@mikro-orm/postgresql@5.9.7(@mikro-orm/core@5.9.7)(@mikro-orm/migrations@5.9.7))(awilix@8.0.1)':
+  '@medusajs/payment@2.2.0(@medusajs/framework@2.1.3(lyi3kszwp2a45wzyj6wnf5jwoi))(@mikro-orm/core@5.9.7(@mikro-orm/migrations@5.9.7(@mikro-orm/core@5.9.7)(@types/node@20.17.10)(pg@8.13.1))(@mikro-orm/postgresql@5.9.7(@mikro-orm/core@5.9.7)(@mikro-orm/migrations@5.9.7)))(@mikro-orm/migrations@5.9.7(@mikro-orm/core@5.9.7)(@types/node@20.17.10)(pg@8.13.1))(@mikro-orm/postgresql@5.9.7(@mikro-orm/core@5.9.7)(@mikro-orm/migrations@5.9.7))(awilix@8.0.1)':
     dependencies:
       '@medusajs/framework': 2.1.3(lyi3kszwp2a45wzyj6wnf5jwoi)
       '@mikro-orm/core': 5.9.7(@mikro-orm/migrations@5.9.7(@mikro-orm/core@5.9.7)(@types/node@20.17.10)(pg@8.13.1))(@mikro-orm/postgresql@5.9.7(@mikro-orm/core@5.9.7)(@mikro-orm/migrations@5.9.7))
@@ -14469,6 +14479,10 @@ snapshots:
   meant@1.0.3: {}
 
   media-typer@0.3.0: {}
+
+  medusa-core-utils@1.2.3:
+    dependencies:
+      awilix: 8.0.1
 
   medusajs-launch-utils@0.0.10:
     dependencies:

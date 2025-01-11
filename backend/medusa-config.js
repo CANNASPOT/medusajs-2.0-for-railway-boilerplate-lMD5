@@ -5,6 +5,8 @@ import {
   BACKEND_URL,
   COOKIE_SECRET,
   DATABASE_URL,
+  FOXPAY_URL,
+  FOXPAY_API_KEY,
   JWT_SECRET,
   REDIS_URL,
   RESEND_API_KEY,
@@ -112,19 +114,27 @@ const medusaConfig = {
         ]
       }
     }] : []),
-    ...(STRIPE_API_KEY && STRIPE_WEBHOOK_SECRET ? [{
+    ...(STRIPE_API_KEY && STRIPE_WEBHOOK_SECRET || FOXPAY_URL && FOXPAY_API_KEY ? [{
       key: Modules.PAYMENT,
       resolve: '@medusajs/payment',
       options: {
         providers: [
-          {
+          ...(STRIPE_API_KEY && STRIPE_WEBHOOK_SECRET ? [{
             resolve: '@medusajs/payment-stripe',
             id: 'stripe',
             options: {
               apiKey: STRIPE_API_KEY,
               webhookSecret: STRIPE_WEBHOOK_SECRET,
             },
-          },
+          }] : []),
+          ...(FOXPAY_URL && FOXPAY_API_KEY ? [{
+            resolve: './src/modules/foxpay',
+            id: 'foxpay',
+            options: {
+              foxpay_api_url: FOXPAY_URL,
+              foxpay_api_key: FOXPAY_API_KEY,
+            },
+          }] : []),
         ],
       },
     }] : []),
