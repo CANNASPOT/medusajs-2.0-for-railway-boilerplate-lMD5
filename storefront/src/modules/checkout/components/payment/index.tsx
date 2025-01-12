@@ -206,7 +206,8 @@ const Payment = ({
           <TestModal
             onClose={closeModal}
             amount={cart.total}
-            reference="A5F4FDS5DS"
+            title="2x LivingSoil 20L"
+            reference={cart.id}
             show={isModalOpen}
           ></TestModal>
         </div>
