@@ -13,6 +13,22 @@ const TestModal: React.FC<TestModalProps> = ({ reference, amount, show, onClose 
   }
 
   const formattedAmount = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(amount);
+  const requestUrl = 'https://api.foxpay.io/v1/qr';
+
+  const generateQrRequest = () => {
+    const response = fetch(requestUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        Amount: amount,
+        Reference: reference
+      })
+    });
+
+    console.log('response', response);
+  }
 
   return (
     <div style={modalStyles.overlay}>
@@ -26,6 +42,7 @@ const TestModal: React.FC<TestModalProps> = ({ reference, amount, show, onClose 
         <p style={modalStyles.sumLabel}>{formattedAmount}</p>
         <p>A5F4FDS5DS</p>
 
+        <button style={modalStyles.submitButton} onClick={generateQrRequest}>OK</button>
         <button style={modalStyles.submitButton} onClick={onClose}>Close</button>
       </div>
     </div>
@@ -81,7 +98,9 @@ const modalStyles = {
     color: 'white',
     border: 'none',
     borderRadius: '4px',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    display: 'inline-block',
+    marginRight: '0.68rem'
   }
 };
 
